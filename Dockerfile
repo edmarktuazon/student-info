@@ -4,6 +4,5 @@ RUN apt-get update && \
     curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 COPY . /var/www/html
 WORKDIR /var/www/html
-RUN composer install --no-dev
 RUN chown -R www-data:www-data /var/www/html/storage
 RUN a2enmod rewrite
