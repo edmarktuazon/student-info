@@ -1,8 +1,21 @@
-FROM php:8.0-apache
-RUN apt-get update && \
-    apt-get install -y git && \
-    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-COPY . /var/www/html
+FROM php:7.4-fpm
+
 WORKDIR /var/www/html
-RUN chown -R www-data:www-data /var/www/html/storage
-RUN a2enmod rewrite
+
+RUN apt-get update && \
+    apt-get install -y \
+        libzip-dev \
+        zip \
+        unzip \
+        git \
+        && docker-php-ext-install pdo_mysql zip
+
+COPY . .
+
+RUN composer install --prefer-dist --no-dev --no-scripts --no-progress --optimize-autoloader --no-interaction
+
+RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+
+EXPOSE 9000
+
+CMD ["php-fpm"]
