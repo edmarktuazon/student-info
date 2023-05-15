@@ -1,0 +1,173 @@
+body {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 12% auto;
+    background-color: #85ffbd;
+    background-image: linear-gradient(45deg, #85ffbd 0%, #fffb7d 100%);
+}
+
+.container-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* NAVBAR */
+
+.navbar {
+    background-color: #356833;
+}
+
+.nav-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    color: white;
+}
+
+.nav-container h1 {
+    font-size: 60px;
+}
+
+/* LOGIN / REGISTRATION */
+
+.container-form-login {
+    width: 25%;
+    border: 1px solid #356833;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.container-form-registration {
+    width: 40%;
+    border: 1px solid #356833;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: white;
+}
+
+.title-form {
+    text-align: center;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.form-header {
+    font-weight: 700;
+}
+
+.form-nav {
+    text-align: center;
+}
+
+.form-nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: #28a745;
+}
+
+.radio {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btns {
+    display: flex;
+    gap: 20px;
+}
+
+/* STUDENT INFORMATION */
+
+.container-student {
+    width: 100%;
+    height: 100%;
+}
+
+.title-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding-top: 25px;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+
+.img img {
+    height: 100%;
+}
+
+.title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.left-col,
+.right-col {
+    padding-top: 25px;
+    padding-left: 85px;
+    padding-right: 85px;
+    color: black;
+}
+
+.btn-row {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.row-2 {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.value {
+    border-bottom: 1px solid green;
+    width: 200px;
+}
+.text-body {
+    display: flex;
+}
+
+.left-col .body {
+    width: 150px;
+}
+
+.right-col .body {
+    width: 250px;
+}
+
+.modal-body img {
+    width: 100%;
+}
+
+/* STUDENT MANAGEMENT */
+
+.table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table-container {
+    width: 80%;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    height: 80%;
+}
