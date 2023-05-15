@@ -1,21 +1,16 @@
-FROM php:7.4-fpm
-
-WORKDIR /var/www/html
+FROM php:8.0-fpm
 
 RUN apt-get update && \
-    apt-get install -y \
-        libzip-dev \
-        zip \
-        unzip \
-        git \
-        && docker-php-ext-install pdo_mysql zip
+    apt-get install -y libzip-dev zip unzip git && \
+    docker-php-ext-install pdo_mysql && \
+    docker-php-ext-install zip && \
+    curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY . .
-
-RUN composer install --prefer-dist --no-dev --no-scripts --no-progress --optimize-autoloader --no-interaction
+COPY . /var/www/html
+WORKDIR /var/www/html
+RUN composer install --no-dev --no-scripts
 
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
+RUN chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
 
-EXPOSE 9000
-
-CMD ["php-fpm"]
+CMD php artisan serve --host 0.0.0.0 --port $PORT
